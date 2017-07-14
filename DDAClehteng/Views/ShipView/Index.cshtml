@@ -1,0 +1,56 @@
+﻿@model IEnumerable<DDAClehteng.Models.ShipView>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Add_New")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Ship ID @* @Html.DisplayNameFor(model => model.Ship_Id)*@
+    </th>
+    <th>
+       Destination @* @Html.DisplayNameFor(model => model.Ship_Place)*@
+    </th>
+    <th>
+        Departure Date @*@Html.DisplayNameFor(model => model.Ship_Depart)*@
+    </th>
+    <th>
+       Arrival Date @* @Html.DisplayNameFor(model => model.Ship_Arrived)*@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+               @Html.DisplayFor(modelItem => item.Ship_Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ship_Place)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ship_Depart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ship_Arrived)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditStatus", new { id=item.Ship_Id }) |
+            @Html.ActionLink("Delete", "DeleteStatus", new { id=item.Ship_Id })
+        </td>
+    </tr>
+}
+
+</table>
